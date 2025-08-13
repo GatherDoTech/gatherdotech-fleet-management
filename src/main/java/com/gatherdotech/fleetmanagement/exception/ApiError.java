@@ -2,11 +2,14 @@ package com.gatherdotech.fleetmanagement.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 
+@Getter
+@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Schema(description = "Standard error response returned for failed requests")
 public class ApiError {
@@ -36,7 +39,6 @@ public class ApiError {
     private List<String> details;
 
     // --- Builder-style fluent setters ---
-
     public ApiError status(int v) {
         this.status = v;
         return this;
@@ -70,39 +72,5 @@ public class ApiError {
     public ApiError details(List<String> v) {
         this.details = v;
         return this;
-    }
-
-    // --- Getters (for serialization & Swagger) ---
-
-    public OffsetDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public Map<String, String> getFieldErrors() {
-        return fieldErrors;
-    }
-
-    public List<String> getDetails() {
-        return details;
     }
 }

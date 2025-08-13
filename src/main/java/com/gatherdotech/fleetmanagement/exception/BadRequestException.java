@@ -1,5 +1,8 @@
 package com.gatherdotech.fleetmanagement.exception;
 
+import lombok.Getter;
+
+@Getter
 public class BadRequestException extends RuntimeException {
     private final String code;
 
@@ -11,9 +14,5 @@ public class BadRequestException extends RuntimeException {
     public BadRequestException(String code, String message) {
         super(message);
         this.code = code;
-    }
-
-    public String getCode() {
-        return code;
     }
 }
