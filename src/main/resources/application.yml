@@ -1,3 +1,33 @@
+# Default configuration
 spring:
   profiles:
     active: dev
+  application:
+    name: fleet-management
+
+# OpenAPI/Swagger Configuration
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+
+# Logging Configuration
+logging:
+  level:
+    com.gatherdotech.fleetmanagement: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
