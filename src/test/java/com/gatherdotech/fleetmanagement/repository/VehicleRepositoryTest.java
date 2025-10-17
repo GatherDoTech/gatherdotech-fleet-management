@@ -17,15 +17,15 @@ class VehicleRepositoryTest {
 
     @Test
     void existsByPlateNumber_and_existsByVin() {
-        Vehicle v = new Vehicle();
-        v.setPlateNumber("TEST-123");
-        v.setVin("1HGBH41JXMN109186");
-        v.setMake("Toyota");
-        v.setModel("Corolla");
-        v.setYear(2020);
-        v.setStatus(VehicleStatus.AVAILABLE);
+        Vehicle vehicle = new Vehicle();
+        vehicle.setPlateNumber("TEST-123");
+        vehicle.setVin("1HGBH41JXMN109186");
+        vehicle.setMake("Toyota");
+        vehicle.setModel("Corolla");
+        vehicle.setYear(2020);
+        vehicle.setStatus(VehicleStatus.AVAILABLE);
 
-        entityManager.persistAndFlush(v);
+        entityManager.persistAndFlush(vehicle);
 
         assertThat(repository.existsByPlateNumber("TEST-123")).isTrue();
         assertThat(repository.existsByPlateNumber("NOPE-999")).isFalse();
